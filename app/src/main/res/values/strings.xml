@@ -14,4 +14,5 @@
     <string name="statistic">Статистика</string>
     <string name="encyclopedia">Енциклопедія</string>
     <string name="Exit">Вийти</string>
+    <string name="opinion_on_training">Останній раз ви тренувались 16 годин тому.   Тренеруйтесь частіше</string>
 </resources>
