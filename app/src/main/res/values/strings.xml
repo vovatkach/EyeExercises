@@ -14,5 +14,20 @@
     <string name="statistic">Статистика</string>
     <string name="encyclopedia">Енциклопедія</string>
     <string name="Exit">Вийти</string>
-    <string name="opinion_on_training">Останній раз ви тренувались 16 годин тому.   Тренеруйтесь частіше</string>
+    <string name="opinion_on_training">Востаннє раз Ви тренувались 16 годин тому.\nТренуйтесь частіше!</string>
+    <string name="textTipTop">Закрийте очі до сигналу</string>
+    <string name="textBottomTip">Розслабтесь</string>
+    <string name="title_activity_finish_training">FinishTraining</string>
+    <string name="finish_training_text">Ви чудово впорались з тренуванням!\n
+Рекомендуємо проводити тренування раз на дві години.\n
+Бажаємо Вам хороших тренувань!\n
+Бережіть очі!\n</string>
+    <string name="ок">ОК</string>
+    <string name="Notification">Нагадати про тренування через</string>
+    <string name="_1_hour">1 годину</string>
+    <string name="hour_1">1 год</string>
+    <string name="hour_2">2 год</string>
+    <string name="not_nitification">ніколи</string>
+    <string name="hour_4">4 год</string>
+    <string name="hour_6">6 год</string>
 </resources>

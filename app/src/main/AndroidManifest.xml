@@ -28,9 +28,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainMenu"
+            android:name=".Act.MainMenu"
             android:label="@string/title_activity_main_menu"
             android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Act.TrainingActivity"
+            android:theme="@style/AppTheme.FullScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Act.FinishAct">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

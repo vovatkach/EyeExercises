@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.vovatkach2427gmail.eyeexercises.Act.TrainingActivity"
+    android:background="@drawable/gradient_welcome">
+
+    <TextView
+        android:id="@+id/tvTopTip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginTop="@dimen/marginTip"
+        android:text="@string/textTipTop"
+        android:textAlignment="center"
+        android:textSize="@dimen/tipSize"
+        android:textStyle="bold"
+       />
+
+    <ImageView
+        android:id="@+id/ivPointer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/eye0"
+        android:layout_gravity="center"
+       />
+
+    <TextView
+        android:id="@+id/tvBottomTip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/marginTip"
+        android:text="@string/textBottomTip"
+        android:textAlignment="center"
+        android:textSize="@dimen/tipSize"
+        android:textStyle="bold"
+       />
+
+</FrameLayout>

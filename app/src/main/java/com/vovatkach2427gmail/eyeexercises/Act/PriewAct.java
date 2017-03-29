@@ -9,7 +9,6 @@ import android.widget.ImageView;
 
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
-import com.vovatkach2427gmail.eyeexercises.MainMenu;
 import com.vovatkach2427gmail.eyeexercises.R;
 
 public class PriewAct extends AppCompatActivity {
