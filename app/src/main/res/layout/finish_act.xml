@@ -7,11 +7,11 @@
     tools:context="com.vovatkach2427gmail.eyeexercises.Act.FinishAct"
     android:background="@drawable/gradient_welcome">
 
-    <ImageButton
+    <ImageView
         android:id="@+id/ibGoToMaimMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/home" />
+        app:srcCompat="@mipmap/ic_back" />
 
     <LinearLayout
         android:layout_width="match_parent"

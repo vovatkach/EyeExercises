@@ -36,8 +36,8 @@ public class WelcomeAct extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
-                Intent goToPriewAct=new Intent(WelcomeAct.this,PriewAct.class);
-                startActivity(goToPriewAct);
+                Intent intent=new Intent(WelcomeAct.this,MainMenu.class);
+                startActivity(intent);
                 overridePendingTransition(R.anim.in_left,R.anim.out_right);
             }
         });

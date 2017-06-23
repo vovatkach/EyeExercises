@@ -4,9 +4,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo_eye"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo_eye"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -19,40 +19,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Act.PriewAct"
-            android:theme="@style/AppTheme.FullScreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".Act.MainMenu"
             android:label="@string/title_activity_main_menu"
-            android:theme="@style/AppTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".Act.TrainingActivity"
-            android:theme="@style/AppTheme.FullScreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:theme="@style/AppTheme.FullScreen" />
+        <activity android:name=".Act.FinishAct" />
+        <activity
+            android:name=".Act.StatisticsAct"
+            android:label="@string/title_activity_statistics"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".Act.AdviveAct" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Act.FinishAct">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <service
+            android:name=".Service.NotificationService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":notification"></service>
     </application>
 
 </manifest>

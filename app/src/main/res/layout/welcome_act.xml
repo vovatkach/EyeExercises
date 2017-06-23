@@ -14,8 +14,8 @@
         android:layout_gravity="center"
         android:text="@string/welcome_name"
         android:textAlignment="center"
-        android:visibility="visible"
-        android:textAppearance="@android:style/TextAppearance.Material.WindowTitle"
-        android:textSize="50sp" />
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:visibility="visible" />
 
 </FrameLayout>

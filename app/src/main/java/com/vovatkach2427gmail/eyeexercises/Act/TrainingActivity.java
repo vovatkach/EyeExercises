@@ -1,6 +1,11 @@
 package com.vovatkach2427gmail.eyeexercises.Act;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
@@ -9,6 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -25,6 +31,10 @@ public class TrainingActivity extends AppCompatActivity {
     TextView tvBottomTip;
     int width=0;
     int height=0;
+
+    ImageView btnClose;
+
+    TrainingAnimator trainingAnimator;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +53,37 @@ public class TrainingActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        TrainingAnimator trainingAnimator=new TrainingAnimator(TrainingActivity.this,imgPointer,tvTopTip,tvBottomTip,width,height);
+        trainingAnimator=new TrainingAnimator(TrainingActivity.this,imgPointer,tvTopTip,tvBottomTip,width,height);
         trainingAnimator.restExercises();
+        ///----------------------------
+        btnClose=(ImageView) findViewById(R.id.btnCloseTraining);
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ObjectAnimator animatorX=ObjectAnimator.ofFloat(btnClose,View.SCALE_X,1.0f, 0.85f, 1.15f, 1.0f);
+                ObjectAnimator animatorY=ObjectAnimator.ofFloat(btnClose,View.SCALE_Y,1.0f, 0.85f, 1.15f, 1.0f);
+                AnimatorSet animatorSet=new AnimatorSet();
+                animatorSet.play(animatorX).with(animatorY);
+                animatorSet.setDuration(30);
+                animatorSet.start();
+                animatorSet.addListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        super.onAnimationEnd(animation);
+                        Intent intent=new Intent(TrainingActivity.this, MainMenu.class);
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.in_left,R.anim.out_right);
+                    }
+                });
+            }
+        });
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        trainingAnimator.stop();
+        trainingAnimator=null;
     }
 }

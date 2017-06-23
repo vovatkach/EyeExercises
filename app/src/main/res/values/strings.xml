@@ -12,14 +12,14 @@
     <string name="start_training">Почати тренування</string>
     <string name="setting">Налаштування</string>
     <string name="statistic">Статистика</string>
-    <string name="encyclopedia">Енциклопедія</string>
+    <string name="encyclopedia">Поради</string>
     <string name="Exit">Вийти</string>
     <string name="opinion_on_training">Востаннє раз Ви тренувались 16 годин тому.\nТренуйтесь частіше!</string>
     <string name="textTipTop">Закрийте очі до сигналу</string>
     <string name="textBottomTip">Розслабтесь</string>
     <string name="title_activity_finish_training">FinishTraining</string>
     <string name="finish_training_text">Ви чудово впорались з тренуванням!\n
-Рекомендуємо проводити тренування раз на дві години.\n
+Рекомендуємо проводити тренування кожної години.\n
 Бажаємо Вам хороших тренувань!\n
 Бережіть очі!\n</string>
     <string name="ок">ОК</string>
@@ -30,4 +30,19 @@
     <string name="not_nitification">ніколи</string>
     <string name="hour_4">4 год</string>
     <string name="hour_6">6 год</string>
+    <string name="nav_notification">Нагадування</string>
+    <string name="title_activity_statistics">StatisticsAct</string>
+    <string name="title_statistics">Статистика</string>
+    <string name="myTrainingStat">Мої тренування</string>
+    <string name="userTraining">Ви тренеруєтесь в середньому:</string>
+    <string name="adviveToTraining">Рекомендовано тренуватись:</string>
+    <string name="_10">1 раз в годину</string>
+    <string name="clearStatistics">Очистити статистику</string>
+    <string name="advice">Поради</string>
+    <string name="adviceText">
+       Як правильно доглядати за очима\n
+Коли говорять про красу, то в першу чергу звертають увагу на очі. Багато в чому краса очей визначається не тільки їх чистотою і блиском, але і станом верхніх і нижніх повік, густотою та довжиною вій і формою брів. Однак очі - надзвичайно чутливий і вразливий орган, їм необхідний щоденний ретельний догляд і відпочинок, особливо після напруженої роботи.І, звичайно, найкращим відпочинком є сон.\n\n
+        Якщо під час інтенсивної роботи, що вимагає напруги зору, ви відчули втому, біль або різь в очах, зробіть перерву, розслабтеся, закрийте очі на 2-3 хвилини або переведіть погляд на інші предмети. На повіки накладіть тампони, змочені настоєм з трав, або накладіть компрес.\n\n
+        Тривале перебування в запиленому, прокуреному приміщенні може викликати почервоніння повік. В цьому випадку промийте очі, а ще краще - зробіть примочки для очей. Вони роблять на очі прекрасне заспокійливу дію.\n\n
+    </string>
 </resources>
