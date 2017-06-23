@@ -86,7 +86,7 @@ public class ActivityTraining extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        
+
         trainingAnimator.stop();
         trainingAnimator = null;
 

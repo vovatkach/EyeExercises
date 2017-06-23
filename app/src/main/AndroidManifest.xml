@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.vovatkach2427gmail.eyeexercises">
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo_eye"
@@ -30,7 +32,13 @@
             android:name=".activity.ActivityStatistics"
             android:label="@string/title_activity_statistics"
             android:theme="@style/AppTheme" />
-        <activity android:name=".activity.ActivityNotification"></activity>
+        <activity android:name=".activity.ActivityNotification" />
+
+        <service
+            android:name=".service.NotificationService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":notification"></service>
     </application>
 
 </manifest>

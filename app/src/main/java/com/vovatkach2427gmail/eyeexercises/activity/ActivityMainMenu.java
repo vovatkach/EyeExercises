@@ -17,6 +17,7 @@ import com.vovatkach2427gmail.eyeexercises.database.DataBaseWorker;
 import com.vovatkach2427gmail.eyeexercises.model.DateModel;
 import com.vovatkach2427gmail.eyeexercises.model.StatisticsModel;
 import com.vovatkach2427gmail.eyeexercises.R;
+import com.vovatkach2427gmail.eyeexercises.service.NotificationService;
 
 import java.util.List;
 
@@ -40,7 +41,6 @@ public class ActivityMainMenu extends AppCompatActivity
         tvInfo = (TextView) findViewById(R.id.tvMainMenuInfo);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
     }
 
     @Override

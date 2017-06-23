@@ -4,12 +4,14 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.vovatkach2427gmail.eyeexercises.R;
+import com.vovatkach2427gmail.eyeexercises.service.NotificationService;
 
 public class ActivityNotification extends AppCompatActivity {
 
@@ -21,6 +23,9 @@ public class ActivityNotification extends AppCompatActivity {
         setContentView(R.layout.activity_notification);
 
         ivNavBack = (ImageView) findViewById(R.id.ivNavBackFromNotification);
+
+        startService(new Intent(ActivityNotification.this, NotificationService.class));
+
     }
 
     @Override
