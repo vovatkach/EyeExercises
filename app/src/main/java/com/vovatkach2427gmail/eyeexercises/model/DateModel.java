@@ -1,6 +1,4 @@
-package com.vovatkach2427gmail.eyeexercises.Model;
-
-import android.util.Log;
+package com.vovatkach2427gmail.eyeexercises.model;
 
 import com.vovatkach2427gmail.eyeexercises.TimeWritter;
 
@@ -118,7 +116,7 @@ public class DateModel {
             return "Ви тренувались менше ніж годину тому\nВИ МОЛОДЕЦЬ!!!";
         }
         String advice;
-        if (res<4) advice="ВИ МОЛОДЕЦЬ!!!";else advice="ТРЕНУЙТЕСЬ ЧАСТІШЕ!!!";
+        if (res<4) advice="ВИ МОЛОДЕЦЬ!!!";else advice="\nТРЕНУЙТЕСЬ ЧАСТІШЕ!!!";
         return "Ви тренувались "+TimeWritter.Time(res)+" тому "+advice;
     }
 }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:background="@drawable/gradient_welcome"
-    tools:context="com.vovatkach2427gmail.eyeexercises.Act.StatisticsAct"
+    tools:context="com.vovatkach2427gmail.eyeexercises.activity.ActivityStatistics"
     tools:showIn="@layout/content_statistics">
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvStatistics"

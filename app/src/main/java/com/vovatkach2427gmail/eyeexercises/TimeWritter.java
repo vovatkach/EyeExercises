@@ -34,7 +34,7 @@ public class TimeWritter {
             hour = hours;
         }
         if(days>30){
-            System.out.println("30 dniv maksumym!");
+       //     System.out.println("30 dniv maksumym!");
         }
         String T = "";
         if(days==0){
@@ -60,7 +60,7 @@ public class TimeWritter {
             daysH = hours;
         }
         if(weeks>4){
-            System.out.println("4 weeks maksumym!");
+         //   System.out.println("4 weeks maksumym!");
         }
         String T = "";
         if(weeks==0){
@@ -84,7 +84,7 @@ public class TimeWritter {
             weeksH = hours;
         }
         if(months>12){
-            System.out.println("12 month maksumym!");
+      //      System.out.println("12 month maksumym!");
         }
         String T = "";
         if(months==0){

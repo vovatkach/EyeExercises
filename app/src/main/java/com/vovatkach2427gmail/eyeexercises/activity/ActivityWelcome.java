@@ -1,4 +1,4 @@
-package com.vovatkach2427gmail.eyeexercises.Act;
+package com.vovatkach2427gmail.eyeexercises.activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -13,13 +13,13 @@ import android.widget.TextView;
 
 import com.vovatkach2427gmail.eyeexercises.R;
 
-public class WelcomeAct extends AppCompatActivity {
+public class ActivityWelcome extends AppCompatActivity {
     TextView tvWelcomeName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.welcome_act);
+        setContentView(R.layout.activity_welcome);
         tvWelcomeName=(TextView)findViewById(R.id.tvWelcomeName);
     }
 
@@ -36,7 +36,7 @@ public class WelcomeAct extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
-                Intent intent=new Intent(WelcomeAct.this,MainMenu.class);
+                Intent intent=new Intent(ActivityWelcome.this,ActivityMainMenu.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.in_left,R.anim.out_right);
             }

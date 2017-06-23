@@ -1,30 +1,28 @@
-package com.vovatkach2427gmail.eyeexercises.Act;
+package com.vovatkach2427gmail.eyeexercises.activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.vovatkach2427gmail.eyeexercises.Adapter.RVAdapterStatistics;
-import com.vovatkach2427gmail.eyeexercises.DB.DataBaseWorker;
-import com.vovatkach2427gmail.eyeexercises.Model.DateModel;
-import com.vovatkach2427gmail.eyeexercises.Model.StatisticsModel;
+import com.vovatkach2427gmail.eyeexercises.adapter.RVAdapterStatistics;
+import com.vovatkach2427gmail.eyeexercises.database.DataBaseWorker;
+import com.vovatkach2427gmail.eyeexercises.model.DateModel;
+import com.vovatkach2427gmail.eyeexercises.model.StatisticsModel;
 import com.vovatkach2427gmail.eyeexercises.R;
 
 import java.util.List;
 
-public class StatisticsAct extends AppCompatActivity {
+public class ActivityStatistics extends AppCompatActivity {
     ImageView ivNavigationBack;
     RecyclerView rvStatistics;
     TextView tvUserTraining;
@@ -41,6 +39,8 @@ public class StatisticsAct extends AppCompatActivity {
         rvStatistics=(RecyclerView)findViewById(R.id.rvStatistics);
         tvUserTraining=(TextView)findViewById(R.id.tvUserTraining);
         btnClear=(Button)findViewById(R.id.btnClearStatistics);
+        ivNavigationBack=(ImageView)findViewById(R.id.ivNavBackFormStatistics) ;
+
     }
 
     @Override
@@ -49,17 +49,17 @@ public class StatisticsAct extends AppCompatActivity {
         final Thread thread=new Thread(new Runnable() {
             @Override
             public void run() {
-                DataBaseWorker dataBaseWorker=new DataBaseWorker(StatisticsAct.this);
+                DataBaseWorker dataBaseWorker=new DataBaseWorker(ActivityStatistics.this);
                 final List<StatisticsModel> list=dataBaseWorker.loadStatisticsAll();
                 dataBaseWorker.close();
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        adapter=new RVAdapterStatistics(list,StatisticsAct.this);
+                        adapter=new RVAdapterStatistics(list,ActivityStatistics.this);
                         if(!list.isEmpty())
                         {
                             tvUserTraining.setText(DateModel.getAverageTimeToTraining(list.get(0).getDate(),list.size()));
-                            RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(StatisticsAct.this);
+                            RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(ActivityStatistics.this);
                             rvStatistics.setHasFixedSize(true);
                             rvStatistics.setLayoutManager(layoutManager);
                             rvStatistics.setAdapter(adapter);
@@ -73,7 +73,6 @@ public class StatisticsAct extends AppCompatActivity {
         });
         thread.start();
         //--------------------------------------------------
-        ivNavigationBack=(ImageView)findViewById(R.id.ivNavBackFormStatistics) ;
         ivNavigationBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,8 +86,7 @@ public class StatisticsAct extends AppCompatActivity {
                     @Override
                     public void onAnimationEnd(Animator animation) {
                         super.onAnimationEnd(animation);
-                        Intent intent=new Intent(StatisticsAct.this, MainMenu.class);
-                        startActivity(intent);
+                        onBackPressed();
                         overridePendingTransition(R.anim.in_left,R.anim.out_right);
                     }
                 });
@@ -103,7 +101,7 @@ public class StatisticsAct extends AppCompatActivity {
                 Thread threadClear=new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        DataBaseWorker dataBaseWorker=new DataBaseWorker(StatisticsAct.this);
+                        DataBaseWorker dataBaseWorker=new DataBaseWorker(ActivityStatistics.this);
                         dataBaseWorker.clearStatistics();
                         dataBaseWorker.close();
                     }

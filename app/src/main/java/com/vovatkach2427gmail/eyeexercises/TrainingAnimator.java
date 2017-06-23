@@ -18,7 +18,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.vovatkach2427gmail.eyeexercises.Act.FinishAct;
+import com.vovatkach2427gmail.eyeexercises.activity.ActivityFinish;
 
 /**
  * Created by vovat on 26.03.2017.
@@ -116,7 +116,7 @@ public class TrainingAnimator {
                         break;
                     case 5:
                         mediaPlayer.start();
-                        Intent intent=new Intent(activity,FinishAct.class);
+                        Intent intent=new Intent(activity,ActivityFinish.class);
                         activity.startActivity(intent);
                         activity.overridePendingTransition(R.anim.in_left,R.anim.out_right);
                         break;

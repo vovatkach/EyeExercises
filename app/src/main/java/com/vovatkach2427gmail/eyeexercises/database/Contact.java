@@ -1,4 +1,4 @@
-package com.vovatkach2427gmail.eyeexercises.DB;
+package com.vovatkach2427gmail.eyeexercises.database;
 
 /**
  * Created by vovat on 31.03.2017.

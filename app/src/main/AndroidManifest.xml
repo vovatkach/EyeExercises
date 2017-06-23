@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.vovatkach2427gmail.eyeexercises">
-
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo_eye"
@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Act.WelcomeAct"
+            android:name=".activity.ActivityWelcome"
             android:theme="@style/AppTheme.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,24 +19,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Act.MainMenu"
+            android:name=".activity.ActivityMainMenu"
             android:label="@string/title_activity_main_menu"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".Act.TrainingActivity"
+            android:name=".activity.ActivityTraining"
             android:theme="@style/AppTheme.FullScreen" />
-        <activity android:name=".Act.FinishAct" />
+        <activity android:name=".activity.ActivityFinish" />
         <activity
-            android:name=".Act.StatisticsAct"
+            android:name=".activity.ActivityStatistics"
             android:label="@string/title_activity_statistics"
             android:theme="@style/AppTheme" />
-        <activity android:name=".Act.AdviveAct" />
-
-        <service
-            android:name=".Service.NotificationService"
-            android:enabled="true"
-            android:exported="true"
-            android:process=":notification"></service>
+        <activity android:name=".activity.ActivityNotification"></activity>
     </application>
 
 </manifest>

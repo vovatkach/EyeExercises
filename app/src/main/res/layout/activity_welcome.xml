@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_welcome"
-    tools:context="com.vovatkach2427gmail.eyeexercises.Act.WelcomeAct">
+    tools:context="com.vovatkach2427gmail.eyeexercises.activity.ActivityWelcome">
 
     <TextView
         android:id="@+id/tvWelcomeName"

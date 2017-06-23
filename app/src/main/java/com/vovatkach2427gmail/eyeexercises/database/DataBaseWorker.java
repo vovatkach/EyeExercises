@@ -1,4 +1,4 @@
-package com.vovatkach2427gmail.eyeexercises.DB;
+package com.vovatkach2427gmail.eyeexercises.database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,8 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.vovatkach2427gmail.eyeexercises.Model.DateModel;
-import com.vovatkach2427gmail.eyeexercises.Model.StatisticsModel;
+import com.vovatkach2427gmail.eyeexercises.model.DateModel;
+import com.vovatkach2427gmail.eyeexercises.model.StatisticsModel;
 
 import java.util.ArrayList;
 import java.util.List;

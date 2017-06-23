@@ -1,4 +1,4 @@
-package com.vovatkach2427gmail.eyeexercises.Model;
+package com.vovatkach2427gmail.eyeexercises.model;
 
 /**
  * Created by vovat on 02.06.2017.
