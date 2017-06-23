@@ -10,6 +10,8 @@ import android.os.IBinder;
 import com.vovatkach2427gmail.eyeexercises.R;
 import com.vovatkach2427gmail.eyeexercises.activity.ActivityMainMenu;
 
+import java.util.concurrent.TimeUnit;
+
 public class NotificationService extends Service {
     NotificationManager notificationManager;
 
@@ -24,8 +26,15 @@ public class NotificationService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        sendNotification();
-        stopSelf();
+        for(int i=0;i<1000;i++)
+        {
+            sendNotification();
+            try {
+                TimeUnit.MINUTES.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -48,7 +57,7 @@ public class NotificationService extends Service {
                 .setContentTitle("Вправи для очей 1")
                 .setContentText("Вправи для очей 2")
                 .setContentIntent(pendingIntent)
-                .setOngoing(true)
+              //  .setOngoing(true)
                 .setAutoCancel(true)
                 .setSmallIcon(R.drawable.logo_eye);
 
