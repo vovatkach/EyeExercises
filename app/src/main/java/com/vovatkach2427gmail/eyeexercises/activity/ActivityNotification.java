@@ -4,6 +4,8 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +14,9 @@ import android.widget.ImageView;
 
 import com.vovatkach2427gmail.eyeexercises.R;
 import com.vovatkach2427gmail.eyeexercises.service.NotificationService;
+
+import java.util.Calendar;
+import java.util.concurrent.TimeUnit;
 
 public class ActivityNotification extends AppCompatActivity {
 
@@ -24,7 +29,11 @@ public class ActivityNotification extends AppCompatActivity {
 
         ivNavBack = (ImageView) findViewById(R.id.ivNavBackFromNotification);
 
-        startService(new Intent(ActivityNotification.this, NotificationService.class));
+        Intent intent = new Intent(ActivityNotification.this, NotificationService.class);
+        PendingIntent pendingIntent = PendingIntent.getService(ActivityNotification.this, 0, intent, 0);
+
+        AlarmManager alarmManager=(AlarmManager) getSystemService(ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,Calendar.getInstance().getTimeInMillis(), TimeUnit.MINUTES.toMillis(5),pendingIntent);
 
     }
 
@@ -35,9 +44,9 @@ public class ActivityNotification extends AppCompatActivity {
         ivNavBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ObjectAnimator animatorX=ObjectAnimator.ofFloat(ivNavBack,View.SCALE_X,1.0f, 0.85f, 1.15f, 1.0f);
-                ObjectAnimator animatorY=ObjectAnimator.ofFloat(ivNavBack,View.SCALE_Y,1.0f, 0.85f, 1.15f, 1.0f);
-                AnimatorSet animatorSet=new AnimatorSet();
+                ObjectAnimator animatorX = ObjectAnimator.ofFloat(ivNavBack, View.SCALE_X, 1.0f, 0.85f, 1.15f, 1.0f);
+                ObjectAnimator animatorY = ObjectAnimator.ofFloat(ivNavBack, View.SCALE_Y, 1.0f, 0.85f, 1.15f, 1.0f);
+                AnimatorSet animatorSet = new AnimatorSet();
                 animatorSet.play(animatorX).with(animatorY);
                 animatorSet.setDuration(30);
                 animatorSet.start();
@@ -46,7 +55,7 @@ public class ActivityNotification extends AppCompatActivity {
                     public void onAnimationEnd(Animator animation) {
                         super.onAnimationEnd(animation);
                         onBackPressed();
-                        overridePendingTransition(R.anim.in_left,R.anim.out_right);
+                        overridePendingTransition(R.anim.in_left, R.anim.out_right);
                     }
                 });
             }

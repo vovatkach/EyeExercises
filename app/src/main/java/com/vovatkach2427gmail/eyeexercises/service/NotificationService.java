@@ -26,15 +26,8 @@ public class NotificationService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        for(int i=0;i<1000;i++)
-        {
-            sendNotification();
-            try {
-                TimeUnit.MINUTES.sleep(10);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        sendNotification();
+        stopSelf();
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -57,7 +50,6 @@ public class NotificationService extends Service {
                 .setContentTitle("Вправи для очей 1")
                 .setContentText("Вправи для очей 2")
                 .setContentIntent(pendingIntent)
-              //  .setOngoing(true)
                 .setAutoCancel(true)
                 .setSmallIcon(R.drawable.logo_eye);
 
