@@ -1,4 +1,4 @@
-package com.vovatkach2427gmail.eyeexercises.service;
+package com.vovatkach2427gmail.eyeexercises.notification;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -9,8 +9,6 @@ import android.os.IBinder;
 
 import com.vovatkach2427gmail.eyeexercises.R;
 import com.vovatkach2427gmail.eyeexercises.activity.ActivityMainMenu;
-
-import java.util.concurrent.TimeUnit;
 
 public class NotificationService extends Service {
     NotificationManager notificationManager;

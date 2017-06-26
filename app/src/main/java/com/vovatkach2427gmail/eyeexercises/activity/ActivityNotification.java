@@ -13,7 +13,8 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.vovatkach2427gmail.eyeexercises.R;
-import com.vovatkach2427gmail.eyeexercises.service.NotificationService;
+import com.vovatkach2427gmail.eyeexercises.notification.MyNotification;
+import com.vovatkach2427gmail.eyeexercises.notification.NotificationService;
 
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
@@ -28,13 +29,6 @@ public class ActivityNotification extends AppCompatActivity {
         setContentView(R.layout.activity_notification);
 
         ivNavBack = (ImageView) findViewById(R.id.ivNavBackFromNotification);
-
-        Intent intent = new Intent(ActivityNotification.this, NotificationService.class);
-        PendingIntent pendingIntent = PendingIntent.getService(ActivityNotification.this, 0, intent, 0);
-
-        AlarmManager alarmManager=(AlarmManager) getSystemService(ALARM_SERVICE);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,Calendar.getInstance().getTimeInMillis(), TimeUnit.MINUTES.toMillis(5),pendingIntent);
-
     }
 
     @Override

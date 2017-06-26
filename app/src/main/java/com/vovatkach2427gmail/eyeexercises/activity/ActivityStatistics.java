@@ -4,6 +4,9 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,8 +22,12 @@ import com.vovatkach2427gmail.eyeexercises.database.DataBaseWorker;
 import com.vovatkach2427gmail.eyeexercises.model.DateModel;
 import com.vovatkach2427gmail.eyeexercises.model.StatisticsModel;
 import com.vovatkach2427gmail.eyeexercises.R;
+import com.vovatkach2427gmail.eyeexercises.notification.MyNotification;
+import com.vovatkach2427gmail.eyeexercises.notification.NotificationService;
 
+import java.util.Calendar;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class ActivityStatistics extends AppCompatActivity {
     ImageView ivNavigationBack;
@@ -36,37 +43,34 @@ public class ActivityStatistics extends AppCompatActivity {
         setContentView(R.layout.activity_statistics);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        rvStatistics=(RecyclerView)findViewById(R.id.rvStatistics);
-        tvUserTraining=(TextView)findViewById(R.id.tvUserTraining);
-        btnClear=(Button)findViewById(R.id.btnClearStatistics);
-        ivNavigationBack=(ImageView)findViewById(R.id.ivNavBackFormStatistics) ;
-
+        rvStatistics = (RecyclerView) findViewById(R.id.rvStatistics);
+        tvUserTraining = (TextView) findViewById(R.id.tvUserTraining);
+        btnClear = (Button) findViewById(R.id.btnClearStatistics);
+        ivNavigationBack = (ImageView) findViewById(R.id.ivNavBackFormStatistics);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        final Thread thread=new Thread(new Runnable() {
+        final Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                DataBaseWorker dataBaseWorker=new DataBaseWorker(ActivityStatistics.this);
-                final List<StatisticsModel> list=dataBaseWorker.loadStatisticsAll();
+                DataBaseWorker dataBaseWorker = new DataBaseWorker(ActivityStatistics.this);
+                final List<StatisticsModel> list = dataBaseWorker.loadStatisticsAll();
                 dataBaseWorker.close();
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        adapter=new RVAdapterStatistics(list,ActivityStatistics.this);
-                        if(!list.isEmpty())
-                        {
-                            tvUserTraining.setText(DateModel.getAverageTimeToTraining(list.get(0).getDate(),list.size()));
-                            RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(ActivityStatistics.this);
+                        adapter = new RVAdapterStatistics(list, ActivityStatistics.this);
+                        if (!list.isEmpty()) {
+                            tvUserTraining.setText(DateModel.getAverageTimeToTraining(list.get(0).getDate(), list.size()));
+                            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ActivityStatistics.this);
                             rvStatistics.setHasFixedSize(true);
                             rvStatistics.setLayoutManager(layoutManager);
                             rvStatistics.setAdapter(adapter);
-                        }else
-                            {
-                                tvUserTraining.setText("не знайдено жодної тренеровки");
-                            }
+                        } else {
+                            tvUserTraining.setText("не знайдено жодної тренеровки");
+                        }
                     }
                 });
             }
@@ -76,9 +80,9 @@ public class ActivityStatistics extends AppCompatActivity {
         ivNavigationBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ObjectAnimator animatorX=ObjectAnimator.ofFloat(ivNavigationBack,View.SCALE_X,1.0f, 0.85f, 1.15f, 1.0f);
-                ObjectAnimator animatorY=ObjectAnimator.ofFloat(ivNavigationBack,View.SCALE_Y,1.0f, 0.85f, 1.15f, 1.0f);
-                AnimatorSet animatorSet=new AnimatorSet();
+                ObjectAnimator animatorX = ObjectAnimator.ofFloat(ivNavigationBack, View.SCALE_X, 1.0f, 0.85f, 1.15f, 1.0f);
+                ObjectAnimator animatorY = ObjectAnimator.ofFloat(ivNavigationBack, View.SCALE_Y, 1.0f, 0.85f, 1.15f, 1.0f);
+                AnimatorSet animatorSet = new AnimatorSet();
                 animatorSet.play(animatorX).with(animatorY);
                 animatorSet.setDuration(30);
                 animatorSet.start();
@@ -87,7 +91,7 @@ public class ActivityStatistics extends AppCompatActivity {
                     public void onAnimationEnd(Animator animation) {
                         super.onAnimationEnd(animation);
                         onBackPressed();
-                        overridePendingTransition(R.anim.in_left,R.anim.out_right);
+                        overridePendingTransition(R.anim.in_left, R.anim.out_right);
                     }
                 });
             }
@@ -98,10 +102,10 @@ public class ActivityStatistics extends AppCompatActivity {
                 adapter.clear();
                 adapter.notifyDataSetChanged();
                 tvUserTraining.setText("не знайдено жодної тренеровки");
-                Thread threadClear=new Thread(new Runnable() {
+                Thread threadClear = new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        DataBaseWorker dataBaseWorker=new DataBaseWorker(ActivityStatistics.this);
+                        DataBaseWorker dataBaseWorker = new DataBaseWorker(ActivityStatistics.this);
                         dataBaseWorker.clearStatistics();
                         dataBaseWorker.close();
                     }

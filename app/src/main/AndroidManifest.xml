@@ -35,7 +35,7 @@
         <activity android:name=".activity.ActivityNotification" />
 
         <service
-            android:name=".service.NotificationService"
+            android:name=".notification.NotificationService"
             android:enabled="true"
             android:exported="true"
             android:process=":notification"></service>
