@@ -71,8 +71,8 @@ public class ActivityMainMenu extends AppCompatActivity
         btnStartTraining.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent startTraining=new Intent(ActivityMainMenu.this,ActivityTraining.class);
-              //  Intent startTraining=new Intent(ActivityMainMenu.this,ActivityFinish.class);
+                //  Intent startTraining = new Intent(ActivityMainMenu.this, ActivityTraining.class);
+                Intent startTraining = new Intent(ActivityMainMenu.this, ActivityFinish.class);
                 startActivity(startTraining);
                 overridePendingTransition(R.anim.in_left, R.anim.out_right);
             }
@@ -102,7 +102,7 @@ public class ActivityMainMenu extends AppCompatActivity
                 overridePendingTransition(R.anim.nav_in, R.anim.nav_out);
                 break;
             case R.id.nav_notification:
-                Intent goToNotification=new Intent(ActivityMainMenu.this,ActivityNotification.class);
+                Intent goToNotification = new Intent(ActivityMainMenu.this, ActivityNotification.class);
                 startActivity(goToNotification);
                 overridePendingTransition(R.anim.nav_in, R.anim.nav_out);
                 break;

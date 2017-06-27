@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_welcome"
     android:orientation="vertical"
     android:scrollbars="vertical"
-    android:background="@drawable/gradient_welcome"
     tools:context="com.vovatkach2427gmail.eyeexercises.activity.ActivityNotification">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/colorTeal800"
+        android:background="@color/colorTeal700"
         app:contentInsetEnd="0dp"
         app:contentInsetLeft="0dp"
         app:contentInsetRight="0dp"
@@ -47,96 +47,99 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="@string/notification_advice"
         android:textColor="@color/colorWhite"
         android:textSize="16sp"
-        android:gravity="center"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/тщеша"
-        android:textSize="14sp"
         android:layout_marginTop="5dp"
-        android:gravity="center" />
+        android:gravity="center"
+        android:text="@string/тщеша"
+        android:textSize="14sp" />
 
     <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center">
 
         <RadioButton
-            android:id="@+id/radioButton5"
+            android:id="@+id/rbHour1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="16sp"
             android:layout_margin="2dp"
-            android:text="1 година" />
+            android:layout_weight="1"
+            android:text="1 година"
+            android:textSize="16sp" />
 
         <RadioButton
-            android:id="@+id/radioButton4"
+            android:id="@+id/rbHour2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="16sp"
             android:layout_margin="2dp"
-            android:text="2 години" />
+            android:layout_weight="1"
+            android:text="2 години"
+            android:textSize="16sp" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/rbHour3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="16sp"
             android:layout_margin="2dp"
-            android:text="3 години" />
+            android:layout_weight="1"
+            android:text="3 години"
+            android:textSize="16sp" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/rbHour4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="16sp"
             android:layout_margin="2dp"
-            android:text="4 години" />
+            android:layout_weight="1"
+            android:text="4 години"
+            android:textSize="16sp" />
 
         <RadioButton
-            android:id="@+id/radioButton7"
+            android:id="@+id/rbHour5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="16sp"
             android:layout_margin="2dp"
-            android:text="5 годин" />
+            android:layout_weight="1"
+            android:text="5 годин"
+            android:textSize="16sp" />
 
         <RadioButton
-            android:id="@+id/radioButton8"
+            android:id="@+id/rbHour6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="16sp"
             android:layout_margin="2dp"
-            android:text="6 годин" />
+            android:layout_weight="1"
+            android:text="6 годин"
+            android:textSize="16sp" />
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/rbHourNever"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="16sp"
             android:layout_margin="2dp"
-            android:text="ніколи" />
+            android:layout_weight="1"
+            android:text="ніколи"
+            android:textSize="16sp" />
 
     </RadioGroup>
 
     <Button
+        android:id="@+id/btnChangeNotifTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/round_button"
         android:layout_margin="8dp"
+        android:alpha="0.4"
+        android:background="@drawable/round_button"
         android:enabled="false"
-        android:text="@string/change"/>
+        android:text="@string/change" />
 
 </LinearLayout>

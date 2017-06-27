@@ -49,4 +49,5 @@
     <string name="notification_advice">Рекомендовано тренуватись кожної години</string>
     <string name="тщеша">Нагадувати про тренування кожних:</string>
     <string name="change">Змінити</string>
+    <string name="time_notification">Налаштування нагадування</string>
 </resources>

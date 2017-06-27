@@ -103,8 +103,8 @@ public class ActivityTraining extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-      //  this.mWakeLock.release();
-          getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        //  this.mWakeLock.release();
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
     }
 }

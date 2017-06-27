@@ -29,60 +29,60 @@ public class TrainingAnimator {
     private int onCornersCount;
     private Activity activity;
     private MediaPlayer mediaPlayer;
-    private  ImageView img;
+    private ImageView img;
     private TextView tvTop;
     private TextView tvDown;
     private int width;
     private int height;
-    private final float speed=0.56f;
+    private final float speed = 0.56f;
 
-    AnimatorSet animatorSet=null;
-    AnimatorSet animatorSetShow=null;
-    AnimatorSet animationSetGone=null;
-    ObjectAnimator objectAnimatorUdDown=null;
-    ObjectAnimator objectAnimatorUdDownLeftRight=null;
+    AnimatorSet animatorSet = null;
+    AnimatorSet animatorSetShow = null;
+    AnimatorSet animationSetGone = null;
+    ObjectAnimator objectAnimatorUdDown = null;
+    ObjectAnimator objectAnimatorUdDownLeftRight = null;
 
-    ObjectAnimator objectAnimatorGoToTopRight=null;
-    ObjectAnimator objectAnimatorGoToBottomRight=null;
-    ObjectAnimator objectAnimatorGoToBottomLeft=null;
-    ObjectAnimator objectAnimatorGoToTopLeft=null;
-    AnimatorSet animatorSetGoToTopLeft=null;
-    AnimatorSet animatorSetGoToCenter=null;
+    ObjectAnimator objectAnimatorGoToTopRight = null;
+    ObjectAnimator objectAnimatorGoToBottomRight = null;
+    ObjectAnimator objectAnimatorGoToBottomLeft = null;
+    ObjectAnimator objectAnimatorGoToTopLeft = null;
+    AnimatorSet animatorSetGoToTopLeft = null;
+    AnimatorSet animatorSetGoToCenter = null;
 
 
-    AnimatorSet animatorSetGoToTopLeftC=null;
-    ObjectAnimator objectAnimatorGoToBottomLeftC=null;
-    ObjectAnimator objectAnimatorGoToBottomRightC=null;
-    ObjectAnimator objectAnimatorGoToTopRightC=null;
-    ObjectAnimator objectAnimatorGoToTopLeftC=null;
-    AnimatorSet animatorSetGoToCenterC=null;
+    AnimatorSet animatorSetGoToTopLeftC = null;
+    ObjectAnimator objectAnimatorGoToBottomLeftC = null;
+    ObjectAnimator objectAnimatorGoToBottomRightC = null;
+    ObjectAnimator objectAnimatorGoToTopRightC = null;
+    ObjectAnimator objectAnimatorGoToTopLeftC = null;
+    AnimatorSet animatorSetGoToCenterC = null;
 
-    AnimatorSet animatorSetShowC=null;
-    AnimatorSet animatorSetC=null;
-    public TrainingAnimator(Activity act, ImageView img1, TextView tvTop1, TextView tvDown1, int width1, int height1)
-    {
-        currectExercises=0;
-        onCornersCount=0;
-        activity=act;
-        img=img1;
-        tvTop=tvTop1;
-        tvDown=tvDown1;
-        width=width1;
-        height=height1;
-        mediaPlayer=MediaPlayer.create(activity,R.raw.sound);
+    AnimatorSet animatorSetShowC = null;
+    AnimatorSet animatorSetC = null;
+
+    public TrainingAnimator(Activity act, ImageView img1, TextView tvTop1, TextView tvDown1, int width1, int height1) {
+        currectExercises = 0;
+        onCornersCount = 0;
+        activity = act;
+        img = img1;
+        tvTop = tvTop1;
+        tvDown = tvDown1;
+        width = width1;
+        height = height1;
+        mediaPlayer = MediaPlayer.create(activity, R.raw.sound);
     }
-    public void restExercises()
-    {
-        animTips("Закрийте очі до сигналу або кліпайте","Розслабтесь");
-        ObjectAnimator objectAnimatorScaleX=ObjectAnimator.ofFloat(img,View.SCALE_X,0.8f,1.2f);
+
+    public void restExercises() {
+        animTips("Закрийте очі до сигналу або кліпайте", "Розслабтесь");
+        ObjectAnimator objectAnimatorScaleX = ObjectAnimator.ofFloat(img, View.SCALE_X, 0.8f, 1.2f);
         objectAnimatorScaleX.setDuration(3000);
         objectAnimatorScaleX.setRepeatCount(5);
         objectAnimatorScaleX.setRepeatMode(ValueAnimator.REVERSE);
-        ObjectAnimator objectAnimatorScaleY=ObjectAnimator.ofFloat(img,View.SCALE_Y,0.8f,1.2f);
+        ObjectAnimator objectAnimatorScaleY = ObjectAnimator.ofFloat(img, View.SCALE_Y, 0.8f, 1.2f);
         objectAnimatorScaleY.setDuration(3000);
         objectAnimatorScaleY.setRepeatCount(5);
         objectAnimatorScaleY.setRepeatMode(ValueAnimator.REVERSE);
-        animatorSet=new AnimatorSet();
+        animatorSet = new AnimatorSet();
         animatorSet.play(objectAnimatorScaleX).with(objectAnimatorScaleY);
         animatorSet.start();
         animatorSet.addListener(new AnimatorListenerAdapter() {
@@ -90,8 +90,7 @@ public class TrainingAnimator {
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
                 mediaPlayer.start();
-                switch (currectExercises)
-                {
+                switch (currectExercises) {
                     case 0:
                         UpDownExercises();
                         currectExercises++;
@@ -102,12 +101,12 @@ public class TrainingAnimator {
                         break;
                     case 2:
                         OnCornersExercises();
-                        onCornersCount=0;
+                        onCornersCount = 0;
                         currectExercises++;
                         break;
                     case 3:
                         OnCornersExercisesConversely();
-                        onCornersCount=0;
+                        onCornersCount = 0;
                         currectExercises++;
                         break;
                     case 4:
@@ -116,9 +115,9 @@ public class TrainingAnimator {
                         break;
                     case 5:
                         mediaPlayer.start();
-                        Intent intent=new Intent(activity,ActivityFinish.class);
+                        Intent intent = new Intent(activity, ActivityFinish.class);
                         activity.startActivity(intent);
-                        activity.overridePendingTransition(R.anim.in_left,R.anim.out_right);
+                        activity.overridePendingTransition(R.anim.in_left, R.anim.out_right);
                         break;
                 }
             }
@@ -126,29 +125,28 @@ public class TrainingAnimator {
 
     }
 
-    private void animTips(String text1, String text2)
-    {
+    private void animTips(String text1, String text2) {
         tvTop.setText(text1);
         tvDown.setText(text2);
         tvTop.setVisibility(View.VISIBLE);
         tvDown.setVisibility(View.VISIBLE);
-        ObjectAnimator animTvTopShow=ObjectAnimator.ofFloat(tvTop, View.ALPHA,0.0f,1.0f);
-        ObjectAnimator animTvEndShow=ObjectAnimator.ofFloat(tvDown, View.ALPHA,0.0f,1.0f);
+        ObjectAnimator animTvTopShow = ObjectAnimator.ofFloat(tvTop, View.ALPHA, 0.0f, 1.0f);
+        ObjectAnimator animTvEndShow = ObjectAnimator.ofFloat(tvDown, View.ALPHA, 0.0f, 1.0f);
         animTvTopShow.setDuration(1000);
         animTvEndShow.setDuration(1000);
-        animatorSetShow=new AnimatorSet();
+        animatorSetShow = new AnimatorSet();
         animatorSetShow.play(animTvTopShow).with(animTvEndShow);
-        Interpolator interpolatorShow=new LinearOutSlowInInterpolator();
+        Interpolator interpolatorShow = new LinearOutSlowInInterpolator();
         animatorSetShow.setInterpolator(interpolatorShow);
 
 
-        ObjectAnimator animTvTopGone=ObjectAnimator.ofFloat(tvTop, View.ALPHA,1.0f,0.0f);
-        ObjectAnimator animTvEndGone=ObjectAnimator.ofFloat(tvDown, View.ALPHA,1.0f,0.0f);
+        ObjectAnimator animTvTopGone = ObjectAnimator.ofFloat(tvTop, View.ALPHA, 1.0f, 0.0f);
+        ObjectAnimator animTvEndGone = ObjectAnimator.ofFloat(tvDown, View.ALPHA, 1.0f, 0.0f);
         animTvTopGone.setDuration(10000);
         animTvEndGone.setDuration(10000);
-        animationSetGone=new AnimatorSet();
+        animationSetGone = new AnimatorSet();
         animationSetGone.play(animTvTopGone).with(animTvEndGone);
-        Interpolator interpolatorGone=new FastOutLinearInInterpolator();
+        Interpolator interpolatorGone = new FastOutLinearInInterpolator();
         animationSetGone.setInterpolator(interpolatorGone);
 
         animatorSetShow.start();
@@ -164,7 +162,7 @@ public class TrainingAnimator {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
-                 tvTop.setVisibility(View.GONE);
+                tvTop.setVisibility(View.GONE);
                 tvDown.setVisibility(View.GONE);
                 tvTop.setAlpha(0);
                 tvDown.setAlpha(0);
@@ -172,14 +170,13 @@ public class TrainingAnimator {
         });
     }
 
-    private void UpDownExercises()
-    {
-        animTips("Вверх-вниз","Слідкуйте очима за вказівником");
-        int size=height/2;
-        int fraction=height/35;
-        objectAnimatorUdDown=ObjectAnimator.ofFloat(img,View.TRANSLATION_Y,0,-(size-fraction),size-fraction,0);
-        Interpolator interpolator=new LinearInterpolator();
-        objectAnimatorUdDown.setDuration(getCountTime(2*height));
+    private void UpDownExercises() {
+        animTips("Вверх-вниз", "Слідкуйте очима за вказівником");
+        int size = height / 2;
+        int fraction = height / 35;
+        objectAnimatorUdDown = ObjectAnimator.ofFloat(img, View.TRANSLATION_Y, 0, -(size - fraction), size - fraction, 0);
+        Interpolator interpolator = new LinearInterpolator();
+        objectAnimatorUdDown.setDuration(getCountTime(2 * height));
         objectAnimatorUdDown.setRepeatCount(3);
         objectAnimatorUdDown.setInterpolator(interpolator);
         objectAnimatorUdDown.start();
@@ -191,14 +188,14 @@ public class TrainingAnimator {
             }
         });
     }
-    private void RightLeftExercises()
-    {
-        animTips("Вправо-вліво","Слідкуйте очима за вказівником");
-        int size=width/2;
-        int fraction=width/35;
-        objectAnimatorUdDownLeftRight=ObjectAnimator.ofFloat(img,View.TRANSLATION_X,0,-(size-fraction),size-fraction,0);
-        Interpolator interpolator=new LinearInterpolator();
-        objectAnimatorUdDownLeftRight.setDuration(getCountTime(2*width));
+
+    private void RightLeftExercises() {
+        animTips("Вправо-вліво", "Слідкуйте очима за вказівником");
+        int size = width / 2;
+        int fraction = width / 35;
+        objectAnimatorUdDownLeftRight = ObjectAnimator.ofFloat(img, View.TRANSLATION_X, 0, -(size - fraction), size - fraction, 0);
+        Interpolator interpolator = new LinearInterpolator();
+        objectAnimatorUdDownLeftRight.setDuration(getCountTime(2 * width));
         objectAnimatorUdDownLeftRight.setRepeatCount(3);
         objectAnimatorUdDownLeftRight.setInterpolator(interpolator);
         objectAnimatorUdDownLeftRight.start();
@@ -210,45 +207,45 @@ public class TrainingAnimator {
             }
         });
     }
-    private void OnCornersExercises()
-    {
-        onCornersCount=0;
-        animTips("Траектрія прямокутник","Слідкуйте очима за вказівником");
-        int sizeWeidth=width/2;
-        int sizeHeight=height/2;
-        int fractionWeidth=width/22;
-        int fractionHeight=height/22;
-        Interpolator interpolator=new LinearInterpolator();
+
+    private void OnCornersExercises() {
+        onCornersCount = 0;
+        animTips("Траектрія прямокутник", "Слідкуйте очима за вказівником");
+        int sizeWeidth = width / 2;
+        int sizeHeight = height / 2;
+        int fractionWeidth = width / 22;
+        int fractionHeight = height / 22;
+        Interpolator interpolator = new LinearInterpolator();
         //----------------------------
-        objectAnimatorGoToTopRight=ObjectAnimator.ofFloat(img,View.TRANSLATION_X,-(sizeWeidth-fractionWeidth),(sizeWeidth-fractionWeidth));
+        objectAnimatorGoToTopRight = ObjectAnimator.ofFloat(img, View.TRANSLATION_X, -(sizeWeidth - fractionWeidth), (sizeWeidth - fractionWeidth));
         objectAnimatorGoToTopRight.setDuration(getCountTime(width));
         objectAnimatorGoToTopRight.setInterpolator(interpolator);
         //-----------------------------
-        objectAnimatorGoToBottomRight=ObjectAnimator.ofFloat(img,View.TRANSLATION_Y,-(sizeHeight-fractionHeight),(sizeHeight-fractionHeight));
+        objectAnimatorGoToBottomRight = ObjectAnimator.ofFloat(img, View.TRANSLATION_Y, -(sizeHeight - fractionHeight), (sizeHeight - fractionHeight));
         objectAnimatorGoToBottomRight.setDuration(getCountTime(height));
         objectAnimatorGoToBottomRight.setInterpolator(interpolator);
         //-----------------------------
-        objectAnimatorGoToBottomLeft=ObjectAnimator.ofFloat(img,View.TRANSLATION_X,(sizeWeidth-fractionWeidth),-(sizeWeidth-fractionWeidth));
+        objectAnimatorGoToBottomLeft = ObjectAnimator.ofFloat(img, View.TRANSLATION_X, (sizeWeidth - fractionWeidth), -(sizeWeidth - fractionWeidth));
         objectAnimatorGoToBottomLeft.setDuration(getCountTime(width));
         objectAnimatorGoToBottomLeft.setInterpolator(interpolator);
         //----------------------------
-        objectAnimatorGoToTopLeft=ObjectAnimator.ofFloat(img,View.TRANSLATION_Y,(sizeHeight-fractionHeight),-(sizeHeight-fractionHeight));
+        objectAnimatorGoToTopLeft = ObjectAnimator.ofFloat(img, View.TRANSLATION_Y, (sizeHeight - fractionHeight), -(sizeHeight - fractionHeight));
         objectAnimatorGoToTopLeft.setDuration(getCountTime(height));
         objectAnimatorGoToTopLeft.setInterpolator(interpolator);
         //------------------------------------
         ///робити всякі круті штуки////
         //-----рух в верхній правий кут
-        ObjectAnimator objectAnimatorGoToTopLeftX=ObjectAnimator.ofFloat(img,View.TRANSLATION_X,0,-(sizeWeidth-fractionWeidth));
-        ObjectAnimator objectAnimatorGoToTopLeftY=ObjectAnimator.ofFloat(img,View.TRANSLATION_Y,0,-(sizeHeight-fractionHeight));
-        animatorSetGoToTopLeft=new AnimatorSet();
+        ObjectAnimator objectAnimatorGoToTopLeftX = ObjectAnimator.ofFloat(img, View.TRANSLATION_X, 0, -(sizeWeidth - fractionWeidth));
+        ObjectAnimator objectAnimatorGoToTopLeftY = ObjectAnimator.ofFloat(img, View.TRANSLATION_Y, 0, -(sizeHeight - fractionHeight));
+        animatorSetGoToTopLeft = new AnimatorSet();
         animatorSetGoToTopLeft.setInterpolator(interpolator);
         animatorSetGoToTopLeft.setDuration(getCountTime(getHypotenuse()));
         animatorSetGoToTopLeft.play(objectAnimatorGoToTopLeftX).with(objectAnimatorGoToTopLeftY);
         animatorSetGoToTopLeft.start();
         //рух з правого кута в центр
-        ObjectAnimator objectAnimatorGoToCenterX=ObjectAnimator.ofFloat(img,View.TRANSLATION_X,-(sizeWeidth-fractionWeidth),0);
-        ObjectAnimator objectAnimatorGoToCenterY=ObjectAnimator.ofFloat(img,View.TRANSLATION_Y,-(sizeHeight-fractionHeight),0);
-        animatorSetGoToCenter=new AnimatorSet();
+        ObjectAnimator objectAnimatorGoToCenterX = ObjectAnimator.ofFloat(img, View.TRANSLATION_X, -(sizeWeidth - fractionWeidth), 0);
+        ObjectAnimator objectAnimatorGoToCenterY = ObjectAnimator.ofFloat(img, View.TRANSLATION_Y, -(sizeHeight - fractionHeight), 0);
+        animatorSetGoToCenter = new AnimatorSet();
         animatorSetGoToCenter.setInterpolator(interpolator);
         animatorSetGoToCenter.setDuration(getHypotenuse());
         animatorSetGoToCenter.play(objectAnimatorGoToCenterX).with(objectAnimatorGoToCenterY);
@@ -285,16 +282,14 @@ public class TrainingAnimator {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
-                if(onCornersCount<1)
-                {
+                if (onCornersCount < 1) {
                     objectAnimatorGoToTopRight.start();
                     onCornersCount++;
-                }
-                else  {
+                } else {
                     animatorSetGoToCenter.start();
-                    onCornersCount=0;
+                    onCornersCount = 0;
                 }
-                }
+            }
         });
         animatorSetGoToCenter.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -304,44 +299,44 @@ public class TrainingAnimator {
             }
         });
     }
-    private void OnCornersExercisesConversely()
-    {
-        onCornersCount=0;
-        animTips("Траектрія прямокутник в інший бік","Слідкуйте очима за вказівником");
-        int sizeWeidth=width/2;
-        int sizeHeight=height/2;
-        int fractionWeidth=width/22;
-        int fractionHeight=height/22;
-        Interpolator interpolator=new LinearInterpolator();
+
+    private void OnCornersExercisesConversely() {
+        onCornersCount = 0;
+        animTips("Траектрія прямокутник в інший бік", "Слідкуйте очима за вказівником");
+        int sizeWeidth = width / 2;
+        int sizeHeight = height / 2;
+        int fractionWeidth = width / 22;
+        int fractionHeight = height / 22;
+        Interpolator interpolator = new LinearInterpolator();
         //---------------------------------------
         //-----рух в верхній правий кут
-        ObjectAnimator objectAnimatorGoToTopLeftX=ObjectAnimator.ofFloat(img,View.TRANSLATION_X,0,-(sizeWeidth-fractionWeidth));
-        ObjectAnimator objectAnimatorGoToTopLeftY=ObjectAnimator.ofFloat(img,View.TRANSLATION_Y,0,-(sizeHeight-fractionHeight));
-        animatorSetGoToTopLeftC=new AnimatorSet();
+        ObjectAnimator objectAnimatorGoToTopLeftX = ObjectAnimator.ofFloat(img, View.TRANSLATION_X, 0, -(sizeWeidth - fractionWeidth));
+        ObjectAnimator objectAnimatorGoToTopLeftY = ObjectAnimator.ofFloat(img, View.TRANSLATION_Y, 0, -(sizeHeight - fractionHeight));
+        animatorSetGoToTopLeftC = new AnimatorSet();
         animatorSetGoToTopLeftC.setInterpolator(interpolator);
         animatorSetGoToTopLeftC.setDuration(getCountTime(getHypotenuse()));
         animatorSetGoToTopLeftC.play(objectAnimatorGoToTopLeftX).with(objectAnimatorGoToTopLeftY);
         animatorSetGoToTopLeftC.start();
         //-----рух по кутах
-        objectAnimatorGoToBottomLeftC=ObjectAnimator.ofFloat(img,View.TRANSLATION_Y,-(sizeHeight-fractionHeight),(sizeHeight-fractionHeight));
+        objectAnimatorGoToBottomLeftC = ObjectAnimator.ofFloat(img, View.TRANSLATION_Y, -(sizeHeight - fractionHeight), (sizeHeight - fractionHeight));
         objectAnimatorGoToBottomLeftC.setDuration(getCountTime(height));
         objectAnimatorGoToBottomLeftC.setInterpolator(interpolator);
         //--------------------
-        objectAnimatorGoToBottomRightC=ObjectAnimator.ofFloat(img,View.TRANSLATION_X,-(sizeWeidth-fractionWeidth),(sizeWeidth-fractionWeidth));
+        objectAnimatorGoToBottomRightC = ObjectAnimator.ofFloat(img, View.TRANSLATION_X, -(sizeWeidth - fractionWeidth), (sizeWeidth - fractionWeidth));
         objectAnimatorGoToBottomRightC.setDuration(getCountTime(width));
         objectAnimatorGoToBottomRightC.setInterpolator(interpolator);
         //---------------------
-        objectAnimatorGoToTopRightC=ObjectAnimator.ofFloat(img,View.TRANSLATION_Y,(sizeHeight-2*fractionWeidth),-(sizeHeight-fractionWeidth));
+        objectAnimatorGoToTopRightC = ObjectAnimator.ofFloat(img, View.TRANSLATION_Y, (sizeHeight - 2 * fractionWeidth), -(sizeHeight - fractionWeidth));
         objectAnimatorGoToTopRightC.setDuration(getCountTime(height));
         objectAnimatorGoToTopRightC.setInterpolator(interpolator);
         //--------------------------------------------------------
-        objectAnimatorGoToTopLeftC=ObjectAnimator.ofFloat(img,View.TRANSLATION_X,(sizeWeidth-fractionWeidth),-(sizeWeidth-fractionWeidth));
+        objectAnimatorGoToTopLeftC = ObjectAnimator.ofFloat(img, View.TRANSLATION_X, (sizeWeidth - fractionWeidth), -(sizeWeidth - fractionWeidth));
         objectAnimatorGoToTopLeftC.setDuration(getCountTime(width));
         objectAnimatorGoToTopLeftC.setInterpolator(interpolator);
         //------------------------------------------------------
-        ObjectAnimator objectAnimatorGoToCenterX=ObjectAnimator.ofFloat(img,View.TRANSLATION_X,-(sizeWeidth-fractionWeidth),0);
-        ObjectAnimator objectAnimatorGoToCenterY=ObjectAnimator.ofFloat(img,View.TRANSLATION_Y,-(sizeHeight-fractionHeight),0);
-        animatorSetGoToCenterC=new AnimatorSet();
+        ObjectAnimator objectAnimatorGoToCenterX = ObjectAnimator.ofFloat(img, View.TRANSLATION_X, -(sizeWeidth - fractionWeidth), 0);
+        ObjectAnimator objectAnimatorGoToCenterY = ObjectAnimator.ofFloat(img, View.TRANSLATION_Y, -(sizeHeight - fractionHeight), 0);
+        animatorSetGoToCenterC = new AnimatorSet();
         animatorSetGoToCenterC.setInterpolator(interpolator);
         animatorSetGoToCenterC.setDuration(getCountTime(getHypotenuse()));
         animatorSetGoToCenterC.play(objectAnimatorGoToCenterX).with(objectAnimatorGoToCenterY);
@@ -378,14 +373,12 @@ public class TrainingAnimator {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
-                if(onCornersCount<1)
-                {
+                if (onCornersCount < 1) {
                     objectAnimatorGoToBottomLeftC.start();
                     onCornersCount++;
-                }
-                else  {
+                } else {
                     animatorSetGoToCenterC.start();
-                    onCornersCount=0;
+                    onCornersCount = 0;
                 }
             }
         });
@@ -399,39 +392,39 @@ public class TrainingAnimator {
 
 
     }
-    private void LookDistantObject()
-    {
-        FrameLayout.LayoutParams layoutParamsTop=new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        layoutParamsTop.setMargins(0,height/10,0,0);
+
+    private void LookDistantObject() {
+        FrameLayout.LayoutParams layoutParamsTop = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParamsTop.setMargins(0, height / 10, 0, 0);
         tvTop.setLayoutParams(layoutParamsTop);
-        FrameLayout.LayoutParams layoutParamsBottom=new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        layoutParamsBottom.setMargins(0,height-(height/5),0,0);
+        FrameLayout.LayoutParams layoutParamsBottom = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParamsBottom.setMargins(0, height - (height / 5), 0, 0);
         tvDown.setLayoutParams(layoutParamsBottom);
         //////-------------------
         tvTop.setText("Подивіться на предмет який знаходиться від вас на відстані 5-10 м");
         tvDown.setText("Розглядайте предмет до сигналу");
         tvTop.setVisibility(View.VISIBLE);
         tvDown.setVisibility(View.VISIBLE);
-        ObjectAnimator animTvTopShow=ObjectAnimator.ofFloat(tvTop, View.ALPHA,0.0f,1.0f);
-        ObjectAnimator animTvEndShow=ObjectAnimator.ofFloat(tvDown, View.ALPHA,0.0f,1.0f);
+        ObjectAnimator animTvTopShow = ObjectAnimator.ofFloat(tvTop, View.ALPHA, 0.0f, 1.0f);
+        ObjectAnimator animTvEndShow = ObjectAnimator.ofFloat(tvDown, View.ALPHA, 0.0f, 1.0f);
         animTvTopShow.setDuration(1000);
         animTvEndShow.setDuration(1000);
-        animatorSetShowC=new AnimatorSet();
+        animatorSetShowC = new AnimatorSet();
         animatorSetShowC.play(animTvTopShow).with(animTvEndShow);
-        Interpolator interpolatorShow=new LinearOutSlowInInterpolator();
+        Interpolator interpolatorShow = new LinearOutSlowInInterpolator();
         animatorSetShowC.setInterpolator(interpolatorShow);
         animatorSetShowC.start();
         ////-----------------
         img.setImageResource(R.drawable.distant_object);
-        ObjectAnimator objectAnimatorScaleX=ObjectAnimator.ofFloat(img,View.SCALE_X,0.9f,1.1f);
+        ObjectAnimator objectAnimatorScaleX = ObjectAnimator.ofFloat(img, View.SCALE_X, 0.9f, 1.1f);
         objectAnimatorScaleX.setDuration(3000);
         objectAnimatorScaleX.setRepeatCount(7);
         objectAnimatorScaleX.setRepeatMode(ValueAnimator.REVERSE);
-        ObjectAnimator objectAnimatorScaleY=ObjectAnimator.ofFloat(img,View.SCALE_Y,0.9f,1.1f);
+        ObjectAnimator objectAnimatorScaleY = ObjectAnimator.ofFloat(img, View.SCALE_Y, 0.9f, 1.1f);
         objectAnimatorScaleY.setDuration(3000);
         objectAnimatorScaleY.setRepeatCount(7);
         objectAnimatorScaleY.setRepeatMode(ValueAnimator.REVERSE);
-        animatorSetC=new AnimatorSet();
+        animatorSetC = new AnimatorSet();
         animatorSetC.play(objectAnimatorScaleX).with(objectAnimatorScaleY);
         animatorSetC.start();
         animatorSetC.addListener(new AnimatorListenerAdapter() {
@@ -447,114 +440,94 @@ public class TrainingAnimator {
             }
         });
     }
-    private int getCountTime(int size)
-    {
-        return Math.round(size/speed);
+
+    private int getCountTime(int size) {
+        return Math.round(size / speed);
     }
-    private int getHypotenuse()
-    {
-        int a=(int) Math.sqrt(height*height+width*width);
-        a=a/2;
+
+    private int getHypotenuse() {
+        int a = (int) Math.sqrt(height * height + width * width);
+        a = a / 2;
         return a;
     }
 
-    public void stop()
-    {
-                if(animatorSet!=null)
-                {
-                    animatorSet.removeAllListeners();
-                    animatorSet.cancel();
-                }
-                if(animatorSetShow!=null)
-                {
-                    animatorSetShow.removeAllListeners();
-                    animatorSetShow.cancel();
-                }
-                if(animationSetGone!=null)
-                {
-                    animationSetGone.removeAllListeners();
-                    animationSetGone.cancel();
-                }
-                if(objectAnimatorUdDown!=null)
-                {
-                    objectAnimatorUdDown.removeAllListeners();
-                    objectAnimatorUdDown.cancel();
-                }
-                if(objectAnimatorUdDownLeftRight!=null)
-                {
-                    objectAnimatorUdDownLeftRight.removeAllListeners();
-                    objectAnimatorUdDownLeftRight.cancel();
-                }
-                if(objectAnimatorGoToTopRight!=null)
-                {
-                    objectAnimatorGoToTopRight.removeAllListeners();
-                    objectAnimatorGoToTopRight.cancel();
-                }
-                if(objectAnimatorGoToBottomRight!=null)
-                {
-                    objectAnimatorGoToBottomRight.removeAllListeners();
-                    objectAnimatorGoToBottomRight.cancel();
-                }
-                if(objectAnimatorGoToBottomLeft!=null)
-                {
-                    objectAnimatorGoToBottomLeft.removeAllListeners();
-                    objectAnimatorGoToBottomLeft.cancel();
-                }
-                if(objectAnimatorGoToTopLeft!=null)
-                {
-                    objectAnimatorGoToTopLeft.removeAllListeners();
-                    objectAnimatorGoToTopLeft.cancel();
-                }
-                if(animatorSetGoToTopLeft!=null)
-                {
-                    animatorSetGoToTopLeft.removeAllListeners();
-                    animatorSetGoToTopLeft.cancel();
-                }
-                if(animatorSetGoToCenter!=null)
-                {
-                    animatorSetGoToCenter.removeAllListeners();
-                    animatorSetGoToCenter.cancel();
-                }
-                if(animatorSetGoToTopLeftC!=null)
-                {
-                    animatorSetGoToTopLeftC.removeAllListeners();
-                    animatorSetGoToTopLeftC.cancel();
-                }
-                if(objectAnimatorGoToBottomLeftC!=null)
-                {
-                    objectAnimatorGoToBottomLeftC.removeAllListeners();
-                    objectAnimatorGoToBottomLeftC.cancel();
-                }
-                if(objectAnimatorGoToBottomRightC!=null)
-                {
-                    objectAnimatorGoToBottomRightC.removeAllListeners();
-                    objectAnimatorGoToBottomRightC.cancel();
-                }
-                if(objectAnimatorGoToTopRightC!=null)
-                {
-                    objectAnimatorGoToTopRightC.removeAllListeners();
-                    objectAnimatorGoToTopRightC.cancel();
-                }
-                if(objectAnimatorGoToTopLeftC!=null)
-                {
-                    objectAnimatorGoToTopLeftC.removeAllListeners();
-                    objectAnimatorGoToTopLeftC.cancel();
-                }
-                if(animatorSetGoToCenterC!=null)
-                {
-                    animatorSetGoToCenterC.removeAllListeners();
-                    animatorSetGoToCenterC.cancel();
-                }
-                if(animatorSetShowC!=null)
-                {
-                    animatorSetShowC.removeAllListeners();
-                    animatorSetShowC.cancel();
-                }
-                if(animatorSetC!=null)
-                {
-                    animatorSetC.removeAllListeners();
-                    animatorSetC.cancel();
-                }
+    public void stop() {
+        if (animatorSet != null) {
+            animatorSet.removeAllListeners();
+            animatorSet.cancel();
+        }
+        if (animatorSetShow != null) {
+            animatorSetShow.removeAllListeners();
+            animatorSetShow.cancel();
+        }
+        if (animationSetGone != null) {
+            animationSetGone.removeAllListeners();
+            animationSetGone.cancel();
+        }
+        if (objectAnimatorUdDown != null) {
+            objectAnimatorUdDown.removeAllListeners();
+            objectAnimatorUdDown.cancel();
+        }
+        if (objectAnimatorUdDownLeftRight != null) {
+            objectAnimatorUdDownLeftRight.removeAllListeners();
+            objectAnimatorUdDownLeftRight.cancel();
+        }
+        if (objectAnimatorGoToTopRight != null) {
+            objectAnimatorGoToTopRight.removeAllListeners();
+            objectAnimatorGoToTopRight.cancel();
+        }
+        if (objectAnimatorGoToBottomRight != null) {
+            objectAnimatorGoToBottomRight.removeAllListeners();
+            objectAnimatorGoToBottomRight.cancel();
+        }
+        if (objectAnimatorGoToBottomLeft != null) {
+            objectAnimatorGoToBottomLeft.removeAllListeners();
+            objectAnimatorGoToBottomLeft.cancel();
+        }
+        if (objectAnimatorGoToTopLeft != null) {
+            objectAnimatorGoToTopLeft.removeAllListeners();
+            objectAnimatorGoToTopLeft.cancel();
+        }
+        if (animatorSetGoToTopLeft != null) {
+            animatorSetGoToTopLeft.removeAllListeners();
+            animatorSetGoToTopLeft.cancel();
+        }
+        if (animatorSetGoToCenter != null) {
+            animatorSetGoToCenter.removeAllListeners();
+            animatorSetGoToCenter.cancel();
+        }
+        if (animatorSetGoToTopLeftC != null) {
+            animatorSetGoToTopLeftC.removeAllListeners();
+            animatorSetGoToTopLeftC.cancel();
+        }
+        if (objectAnimatorGoToBottomLeftC != null) {
+            objectAnimatorGoToBottomLeftC.removeAllListeners();
+            objectAnimatorGoToBottomLeftC.cancel();
+        }
+        if (objectAnimatorGoToBottomRightC != null) {
+            objectAnimatorGoToBottomRightC.removeAllListeners();
+            objectAnimatorGoToBottomRightC.cancel();
+        }
+        if (objectAnimatorGoToTopRightC != null) {
+            objectAnimatorGoToTopRightC.removeAllListeners();
+            objectAnimatorGoToTopRightC.cancel();
+        }
+        if (objectAnimatorGoToTopLeftC != null) {
+            objectAnimatorGoToTopLeftC.removeAllListeners();
+            objectAnimatorGoToTopLeftC.cancel();
+        }
+        if (animatorSetGoToCenterC != null) {
+            animatorSetGoToCenterC.removeAllListeners();
+            animatorSetGoToCenterC.cancel();
+        }
+        if (animatorSetShowC != null) {
+            animatorSetShowC.removeAllListeners();
+            animatorSetShowC.cancel();
+        }
+        if (animatorSetC != null) {
+            animatorSetC.removeAllListeners();
+            animatorSetC.cancel();
+        }
     }
 
 }
