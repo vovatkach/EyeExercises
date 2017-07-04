@@ -57,9 +57,9 @@ public class ActivityMainMenu extends AppCompatActivity
                 final String result;
                 if (!dateModelList.isEmpty()) {
                     DateModel date = dateModelList.get(dateModelList.size() - 1).getDate();
-                    result = DateModel.lastTrainingTime(date);
+                    result = DateModel.lastTrainingTime(date,ActivityMainMenu.this);
                 } else {
-                    result = "Ви ще не тренувались\nРозпочніть своє перше тренування";
+                    result = getString(R.string.no_trainning);
                 }
                 runOnUiThread(new Runnable() {
                     @Override
@@ -74,8 +74,8 @@ public class ActivityMainMenu extends AppCompatActivity
         btnStartTraining.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              //  Intent startTraining = new Intent(ActivityMainMenu.this, ActivityTraining.class);
-                  Intent startTraining = new Intent(ActivityMainMenu.this, ActivityFinish.class);
+                Intent startTraining = new Intent(ActivityMainMenu.this, ActivityTraining.class);
+               // Intent startTraining = new Intent(ActivityMainMenu.this, ActivityFinish.class);
                 startActivity(startTraining);
                 overridePendingTransition(R.anim.in_left, R.anim.out_right);
             }

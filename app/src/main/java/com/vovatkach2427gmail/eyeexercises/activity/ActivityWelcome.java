@@ -34,7 +34,7 @@ public class ActivityWelcome extends AppCompatActivity {
         super.onResume();
         Interpolator interpolator = new AccelerateInterpolator();
         animator = ObjectAnimator.ofFloat(tvWelcomeName, View.ALPHA, 0.0f, 1.0f);
-        animator.setDuration(4000);
+        animator.setDuration(2000);
         animator.setInterpolator(interpolator);
         tvWelcomeName.setVisibility(View.VISIBLE);
         animator.start();

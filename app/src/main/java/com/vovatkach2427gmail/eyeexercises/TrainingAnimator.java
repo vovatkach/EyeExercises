@@ -36,29 +36,29 @@ public class TrainingAnimator {
     private int height;
     private final float speed = 0.56f;
 
-    AnimatorSet animatorSet = null;
-    AnimatorSet animatorSetShow = null;
-    AnimatorSet animationSetGone = null;
-    ObjectAnimator objectAnimatorUdDown = null;
-    ObjectAnimator objectAnimatorUdDownLeftRight = null;
+    private AnimatorSet animatorSet = null;
+    private AnimatorSet animatorSetShow = null;
+    private AnimatorSet animationSetGone = null;
+    private ObjectAnimator objectAnimatorUdDown = null;
+    private ObjectAnimator objectAnimatorUdDownLeftRight = null;
 
-    ObjectAnimator objectAnimatorGoToTopRight = null;
-    ObjectAnimator objectAnimatorGoToBottomRight = null;
-    ObjectAnimator objectAnimatorGoToBottomLeft = null;
-    ObjectAnimator objectAnimatorGoToTopLeft = null;
-    AnimatorSet animatorSetGoToTopLeft = null;
-    AnimatorSet animatorSetGoToCenter = null;
+    private ObjectAnimator objectAnimatorGoToTopRight = null;
+    private ObjectAnimator objectAnimatorGoToBottomRight = null;
+    private ObjectAnimator objectAnimatorGoToBottomLeft = null;
+    private ObjectAnimator objectAnimatorGoToTopLeft = null;
+    private AnimatorSet animatorSetGoToTopLeft = null;
+    private AnimatorSet animatorSetGoToCenter = null;
 
 
-    AnimatorSet animatorSetGoToTopLeftC = null;
-    ObjectAnimator objectAnimatorGoToBottomLeftC = null;
-    ObjectAnimator objectAnimatorGoToBottomRightC = null;
-    ObjectAnimator objectAnimatorGoToTopRightC = null;
-    ObjectAnimator objectAnimatorGoToTopLeftC = null;
-    AnimatorSet animatorSetGoToCenterC = null;
+    private AnimatorSet animatorSetGoToTopLeftC = null;
+    private ObjectAnimator objectAnimatorGoToBottomLeftC = null;
+    private ObjectAnimator objectAnimatorGoToBottomRightC = null;
+    private ObjectAnimator objectAnimatorGoToTopRightC = null;
+    private ObjectAnimator objectAnimatorGoToTopLeftC = null;
+    private AnimatorSet animatorSetGoToCenterC = null;
 
-    AnimatorSet animatorSetShowC = null;
-    AnimatorSet animatorSetC = null;
+    private AnimatorSet animatorSetShowC = null;
+    private AnimatorSet animatorSetC = null;
 
     public TrainingAnimator(Activity act, ImageView img1, TextView tvTop1, TextView tvDown1, int width1, int height1) {
         currectExercises = 0;
@@ -73,7 +73,7 @@ public class TrainingAnimator {
     }
 
     public void restExercises() {
-        animTips("Закрийте очі до сигналу або кліпайте", "Розслабтесь");
+        animTips(activity.getString(R.string.close_eyes), activity.getString(R.string.relax));
         ObjectAnimator objectAnimatorScaleX = ObjectAnimator.ofFloat(img, View.SCALE_X, 0.8f, 1.2f);
         objectAnimatorScaleX.setDuration(3000);
         objectAnimatorScaleX.setRepeatCount(5);
@@ -171,7 +171,7 @@ public class TrainingAnimator {
     }
 
     private void UpDownExercises() {
-        animTips("Вверх-вниз", "Слідкуйте очима за вказівником");
+        animTips(activity.getString(R.string.up_and_down), activity.getString(R.string.follow_the_pointer));
         int size = height / 2;
         int fraction = height / 35;
         objectAnimatorUdDown = ObjectAnimator.ofFloat(img, View.TRANSLATION_Y, 0, -(size - fraction), size - fraction, 0);
@@ -190,7 +190,7 @@ public class TrainingAnimator {
     }
 
     private void RightLeftExercises() {
-        animTips("Вправо-вліво", "Слідкуйте очима за вказівником");
+        animTips(activity.getString(R.string.left_and_right), activity.getString(R.string.follow_the_pointer));
         int size = width / 2;
         int fraction = width / 35;
         objectAnimatorUdDownLeftRight = ObjectAnimator.ofFloat(img, View.TRANSLATION_X, 0, -(size - fraction), size - fraction, 0);
@@ -210,7 +210,7 @@ public class TrainingAnimator {
 
     private void OnCornersExercises() {
         onCornersCount = 0;
-        animTips("Траєкторія прямокутника", "Слідкуйте очима за вказівником");
+        animTips(activity.getString(R.string.trajectory_rectangle), activity.getString(R.string.follow_the_pointer));
         int sizeWeidth = width / 2;
         int sizeHeight = height / 2;
         int fractionWeidth = width / 22;
@@ -302,7 +302,7 @@ public class TrainingAnimator {
 
     private void OnCornersExercisesConversely() {
         onCornersCount = 0;
-        animTips("Траєкторія прямокутник(в інший бік)", "Слідкуйте очима за вказівником");
+        animTips(activity.getString(R.string.trajectory_rectangle_vice_verca), activity.getString(R.string.follow_the_pointer));
         int sizeWeidth = width / 2;
         int sizeHeight = height / 2;
         int fractionWeidth = width / 22;
@@ -401,8 +401,8 @@ public class TrainingAnimator {
         layoutParamsBottom.setMargins(0, height - (height / 5), 0, 0);
         tvDown.setLayoutParams(layoutParamsBottom);
         //////-------------------
-        tvTop.setText("Подивіться на предмет, який знаходиться на відстані 5-10 метрів від Вас");
-        tvDown.setText("Розглядайте предмет до сигналу");
+        tvTop.setText(activity.getString(R.string.look_at_distance_object));
+        tvDown.setText(activity.getString(R.string.look_at_subject_to_sound));
         tvTop.setVisibility(View.VISIBLE);
         tvDown.setVisibility(View.VISIBLE);
         ObjectAnimator animTvTopShow = ObjectAnimator.ofFloat(tvTop, View.ALPHA, 0.0f, 1.0f);

@@ -20,8 +20,6 @@ import com.vovatkach2427gmail.eyeexercises.TrainingAnimator;
 
 public class ActivityTraining extends AppCompatActivity {
 
-    protected PowerManager.WakeLock mWakeLock;
-
     ImageView imgPointer;
     TextView tvTopTip;
     TextView tvBottomTip;
@@ -36,11 +34,7 @@ public class ActivityTraining extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_training);
-/*
-        final PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-        this.mWakeLock = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK, "My Tag");
-        this.mWakeLock.acquire();
-*/
+
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         imgPointer = (ImageView) findViewById(R.id.ivPointer);
@@ -86,24 +80,14 @@ public class ActivityTraining extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-
         trainingAnimator.stop();
         trainingAnimator = null;
-
-        ObjectAnimator objectAnimatorX = ObjectAnimator.ofFloat(imgPointer, View.TRANSLATION_X, imgPointer.getHeight(), height / 2);
-        ObjectAnimator objectAnimatorY = ObjectAnimator.ofFloat(imgPointer, View.TRANSLATION_Y, imgPointer.getWidth(), width / 2);
-
-        AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.setInterpolator(new LinearInterpolator());
-        animatorSet.setDuration(50);
-        animatorSet.play(objectAnimatorX).with(objectAnimatorY);
-        animatorSet.start();
+        finish();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //  this.mWakeLock.release();
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
     }

@@ -51,4 +51,44 @@
     <string name="notification1">Ми нагадаємо Вам про тренування через</string>
     <string name="notification_never">У Вас відключені нагадування</string>
 
+    <string name="close_eyes">Закрийте очі до сигналу або кліпайте</string>
+    <string name="relax">Розслабтесь</string>
+    <string name="up_and_down">Вверх-вниз</string>
+    <string name="follow_the_pointer">Слідкуйте очима за вказівником</string>
+    <string name="left_and_right">Вправо-вліво</string>
+    <string name="trajectory_rectangle">Траєкторія прямокутник</string>
+    <string name="trajectory_rectangle_vice_verca">Траєкторія прямокутник(в інший бік)</string>
+    <string name="look_at_distance_object">Подивіться на предмет, який знаходиться на відстані 5-10 метрів від Вас</string>
+    <string name="look_at_subject_to_sound">Розглядайте предмет до сигналу</string>
+
+    <string name="no_trainning">Ви ще не тренувались\nРозпочніть своє перше тренування</string>
+    <string name="not_search_trainning">не знайдено жодного тренування</string>
+    <string name="time_to_training">Час тренувати очі!</string>
+
+    <string name="day_1">день</string>
+    <string name="day_2">днів</string>
+    <string name="day_3">дні</string>
+
+    <string name="week_1">тиждень</string>
+    <string name="week_2">тижні</string>
+
+    <string name="mounth_1">місяць</string>
+    <string name="mounth_2">місяці</string>
+    <string name="mounth_3">місяців</string>
+
+    <string name="year_1">рік</string>
+    <string name="year_2">роки</string>
+    <string name="year_3">років</string>
+
+    <string name="trainingOnce">ви тренувались тільки 1 раз</string>
+    <string name="more_than_once">частіше, ніж 1 раз в годину</string>
+    <string name="once">1 раз в</string>
+
+    <string name="training_1">Ви тренувались менш, ніж годину тому.\nТак тримати!\n</string>
+    <string name="we_done">ВИ МОЛОДЕЦЬ!!!</string>
+    <string name="go_training">\nТРЕНУЙТЕСЬ ЧАСТІШЕ!!!</string>
+    <string name="we_training">Ви тренувались</string>
+    <string name="because">тому</string>
+
+
 </resources>

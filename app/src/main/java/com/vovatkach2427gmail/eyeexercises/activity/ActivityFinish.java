@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.vovatkach2427gmail.eyeexercises.database.DataBaseWorker;
 import com.vovatkach2427gmail.eyeexercises.model.DateModel;
 import com.vovatkach2427gmail.eyeexercises.R;
+import com.vovatkach2427gmail.eyeexercises.notification.MyNotification;
 
 import java.util.Calendar;
 
@@ -37,6 +38,12 @@ public class ActivityFinish extends AppCompatActivity {
         tvNotification = (TextView) findViewById(R.id.tvTimeToNotification);
 
         btnChangeNotification = (Button) findViewById(R.id.btnChangeNotificationTime);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("notification", MODE_PRIVATE);
+        int repeat_time = sharedPreferences.getInt("repeat_time", 1);
+
+        MyNotification myNotification=new MyNotification(ActivityFinish.this);
+        myNotification.changeRepeatTime(repeat_time);
     }
 
     @Override
@@ -100,16 +107,16 @@ public class ActivityFinish extends AppCompatActivity {
         int hour = sharedPreferences.getInt("repeat_time", 1);
 
         if (hour == 1) {
-            return getString(R.string.notification1)+" " + hour + " " + getString(R.string.hour_1);
+            return getString(R.string.notification1) + " " + hour + " " + getString(R.string.hour_1);
         } else {
             if (hour == 2 || hour == 3 || hour == 4) {
-                return getString(R.string.notification1)+" " + hour + " " + getString(R.string.hour_2);
+                return getString(R.string.notification1) + " " + hour + " " + getString(R.string.hour_2);
             } else {
                 if (hour == 0) {
                     return getString(R.string.notification_never);
 
                 } else {
-                    return getString(R.string.notification1)+" " + hour + " " + getString(R.string.hour_5);
+                    return getString(R.string.notification1) + " " + hour + " " + getString(R.string.hour_5);
                 }
             }
         }

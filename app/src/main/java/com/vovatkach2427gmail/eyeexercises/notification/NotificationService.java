@@ -45,7 +45,7 @@ public class NotificationService extends Service {
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
         Notification.Builder builder=new Notification.Builder(this)
-                .setContentTitle("Час тренувати очі!")
+                .setContentTitle(getString(R.string.time_to_training))
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true)
                 .setSmallIcon(R.drawable.logo_eye);

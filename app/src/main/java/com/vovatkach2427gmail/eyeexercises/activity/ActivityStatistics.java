@@ -63,13 +63,13 @@ public class ActivityStatistics extends AppCompatActivity {
                     public void run() {
                         adapter = new RVAdapterStatistics(list, ActivityStatistics.this);
                         if (!list.isEmpty()) {
-                            tvUserTraining.setText(DateModel.getAverageTimeToTraining(list.get(0).getDate(), list.size()));
+                            tvUserTraining.setText(DateModel.getAverageTimeToTraining(list.get(0).getDate(), list.size(),ActivityStatistics.this));
                             RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ActivityStatistics.this);
                             rvStatistics.setHasFixedSize(true);
                             rvStatistics.setLayoutManager(layoutManager);
                             rvStatistics.setAdapter(adapter);
                         } else {
-                            tvUserTraining.setText("не знайдено жодного тренування");
+                            tvUserTraining.setText(getString(R.string.not_search_trainning));
                         }
                     }
                 });
@@ -101,7 +101,7 @@ public class ActivityStatistics extends AppCompatActivity {
             public void onClick(View v) {
                 adapter.clear();
                 adapter.notifyDataSetChanged();
-                tvUserTraining.setText("не знайдено жодного тренування");
+                tvUserTraining.setText(getString(R.string.not_search_trainning));
                 Thread threadClear = new Thread(new Runnable() {
                     @Override
                     public void run() {
