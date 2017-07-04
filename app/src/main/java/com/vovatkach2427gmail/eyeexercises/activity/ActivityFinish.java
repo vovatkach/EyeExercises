@@ -100,16 +100,16 @@ public class ActivityFinish extends AppCompatActivity {
         int hour = sharedPreferences.getInt("repeat_time", 1);
 
         if (hour == 1) {
-            return "Ви нагадаємо вам про тренування через " + hour + " годину";
+            return getString(R.string.notification1)+" " + hour + " " + getString(R.string.hour_1);
         } else {
             if (hour == 2 || hour == 3 || hour == 4) {
-                return "Ви нагадаємо вам про тренування через " + hour + " години";
+                return getString(R.string.notification1)+" " + hour + " " + getString(R.string.hour_2);
             } else {
                 if (hour == 0) {
-                    return "У вас відключені нагадування";
+                    return getString(R.string.notification_never);
 
                 } else {
-                    return "Ви нагадаємо вам про тренування через " + hour + " годин";
+                    return getString(R.string.notification1)+" " + hour + " " + getString(R.string.hour_5);
                 }
             }
         }

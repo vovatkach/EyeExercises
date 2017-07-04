@@ -29,13 +29,12 @@ public class MyNotification {
     }
 
     public void start(int repeatHour) {
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,Calendar.getInstance().getTimeInMillis()+TimeUnit.MINUTES.toMillis(repeatHour),TimeUnit.MINUTES.toMillis(repeatHour),pendingIntent);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,Calendar.getInstance().getTimeInMillis()+TimeUnit.HOURS.toMillis(repeatHour),TimeUnit.HOURS.toMillis(repeatHour),pendingIntent);
     }
 
     public void changeRepeatTime(int repeatHour) {
         alarmManager.cancel(pendingIntent);
-      //  alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,Calendar.getInstance().getTimeInMillis(),TimeUnit.HOURS.toMillis(repeatHour),pendingIntent);
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,Calendar.getInstance().getTimeInMillis()+TimeUnit.MINUTES.toMillis(repeatHour),TimeUnit.MINUTES.toMillis(repeatHour),pendingIntent);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,Calendar.getInstance().getTimeInMillis()+TimeUnit.HOURS.toMillis(repeatHour),TimeUnit.HOURS.toMillis(repeatHour),pendingIntent);
     }
 
 }

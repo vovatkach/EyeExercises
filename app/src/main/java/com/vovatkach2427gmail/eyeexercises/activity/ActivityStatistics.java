@@ -69,7 +69,7 @@ public class ActivityStatistics extends AppCompatActivity {
                             rvStatistics.setLayoutManager(layoutManager);
                             rvStatistics.setAdapter(adapter);
                         } else {
-                            tvUserTraining.setText("не знайдено жодної тренеровки");
+                            tvUserTraining.setText("не знайдено жодного тренування");
                         }
                     }
                 });
@@ -101,7 +101,7 @@ public class ActivityStatistics extends AppCompatActivity {
             public void onClick(View v) {
                 adapter.clear();
                 adapter.notifyDataSetChanged();
-                tvUserTraining.setText("не знайдено жодної тренеровки");
+                tvUserTraining.setText("не знайдено жодного тренування");
                 Thread threadClear = new Thread(new Runnable() {
                     @Override
                     public void run() {

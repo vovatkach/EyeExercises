@@ -2,7 +2,6 @@ package com.vovatkach2427gmail.eyeexercises.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -10,13 +9,14 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.vovatkach2427gmail.eyeexercises.R;
 import com.vovatkach2427gmail.eyeexercises.database.DataBaseWorker;
 import com.vovatkach2427gmail.eyeexercises.model.DateModel;
 import com.vovatkach2427gmail.eyeexercises.model.StatisticsModel;
-import com.vovatkach2427gmail.eyeexercises.R;
 
 import java.util.List;
 
@@ -32,12 +32,15 @@ public class ActivityMainMenu extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
+
         btnStartTraining = (Button) findViewById(R.id.btnStartTraining);
         tvInfo = (TextView) findViewById(R.id.tvMainMenuInfo);
+
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
@@ -56,7 +59,7 @@ public class ActivityMainMenu extends AppCompatActivity
                     DateModel date = dateModelList.get(dateModelList.size() - 1).getDate();
                     result = DateModel.lastTrainingTime(date);
                 } else {
-                    result = "Ви ще не тренувались\nПочніть свою першу тренеровку";
+                    result = "Ви ще не тренувались\nРозпочніть своє перше тренування";
                 }
                 runOnUiThread(new Runnable() {
                     @Override
@@ -71,8 +74,8 @@ public class ActivityMainMenu extends AppCompatActivity
         btnStartTraining.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //  Intent startTraining = new Intent(ActivityMainMenu.this, ActivityTraining.class);
-                Intent startTraining = new Intent(ActivityMainMenu.this, ActivityFinish.class);
+              //  Intent startTraining = new Intent(ActivityMainMenu.this, ActivityTraining.class);
+                  Intent startTraining = new Intent(ActivityMainMenu.this, ActivityFinish.class);
                 startActivity(startTraining);
                 overridePendingTransition(R.anim.in_left, R.anim.out_right);
             }

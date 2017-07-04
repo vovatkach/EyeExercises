@@ -73,7 +73,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
             android:layout_weight="1"
-            android:text="1 година"
+            android:text="@string/hour1"
             android:textSize="16sp" />
 
         <RadioButton
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
             android:layout_weight="1"
-            android:text="2 години"
+            android:text="@string/hour2"
             android:textSize="16sp" />
 
         <RadioButton
@@ -91,7 +91,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
             android:layout_weight="1"
-            android:text="3 години"
+            android:text="@string/hour3"
             android:textSize="16sp" />
 
         <RadioButton
@@ -100,7 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
             android:layout_weight="1"
-            android:text="4 години"
+            android:text="@string/hour4"
             android:textSize="16sp" />
 
         <RadioButton
@@ -109,7 +109,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
             android:layout_weight="1"
-            android:text="5 годин"
+            android:text="@string/hour5"
             android:textSize="16sp" />
 
         <RadioButton
@@ -118,7 +118,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
             android:layout_weight="1"
-            android:text="6 годин"
+            android:text="@string/hour6"
             android:textSize="16sp" />
 
         <RadioButton
@@ -127,7 +127,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
             android:layout_weight="1"
-            android:text="ніколи"
+            android:text="@string/hourNever"
             android:textSize="16sp" />
 
     </RadioGroup>

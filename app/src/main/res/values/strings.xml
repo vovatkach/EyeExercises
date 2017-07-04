@@ -1,53 +1,54 @@
 <resources>
     <string name="app_name">Eye Exercises</string>
     <string name="welcome_name">Eye\nExercises</string>
-    <string name="btn_continue">Продовжити</string>
-    <string name="cb_not_to_show">Більше не показувати</string>
+
     <string name="title_activity_main_menu">Eye Exercises</string>
+    <string name="title_activity_finish_training">FinishTraining</string>
+    <string name="title_activity_statistics">StatisticsAct</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
     <string name="start_training">Почати тренування</string>
     <string name="setting">Налаштування</string>
     <string name="statistic">Статистика</string>
-    <string name="encyclopedia">Поради</string>
-    <string name="Exit">Вийти</string>
-    <string name="opinion_on_training">Востаннє раз Ви тренувались 16 годин тому.\nТренуйтесь частіше!</string>
-    <string name="textTipTop">Закрийте очі до сигналу</string>
-    <string name="textBottomTip">Розслабтесь</string>
-    <string name="title_activity_finish_training">FinishTraining</string>
-    <string name="finish_training_text">Ви чудово впорались з тренуванням!\n
-Рекомендуємо проводити тренування кожної години.\n
-Бажаємо Вам хороших тренувань!\n
-Бережіть очі!\n</string>
+
+    <string name="finish_training_text">Ви чудово впорались із завданням!\n
+Рекомендуємо проводити тренування щогодини!\n
+Бажаємо Вам хороших занять!\nБережіть очі!</string>
+
     <string name="ок">ОК</string>
     <string name="Notification">Нагадати про тренування через</string>
-    <string name="_1_hour">1 годину</string>
-    <string name="hour_1">1 год</string>
-    <string name="hour_2">2 год</string>
-    <string name="not_nitification">ніколи</string>
-    <string name="hour_4">4 год</string>
-    <string name="hour_6">6 год</string>
+
     <string name="nav_notification">Нагадування</string>
-    <string name="title_activity_statistics">StatisticsAct</string>
     <string name="title_statistics">Статистика</string>
     <string name="myTrainingStat">Мої тренування</string>
-    <string name="userTraining">Ви тренеруєтесь в середньому:</string>
+
+    <string name="userTraining">Ви тренуєтесь в середньому:</string>
     <string name="adviveToTraining">Рекомендовано тренуватись:</string>
-    <string name="_10">1 раз в годину</string>
+    <string name="one_hour">1 раз в годину</string>
     <string name="clearStatistics">Очистити статистику</string>
-    <string name="advice">Поради</string>
-    <string name="adviceText">
-       Як правильно доглядати за очима\n
-Коли говорять про красу, то в першу чергу звертають увагу на очі. Багато в чому краса очей визначається не тільки їх чистотою і блиском, але і станом верхніх і нижніх повік, густотою та довжиною вій і формою брів. Однак очі - надзвичайно чутливий і вразливий орган, їм необхідний щоденний ретельний догляд і відпочинок, особливо після напруженої роботи.І, звичайно, найкращим відпочинком є сон.\n\n
-        Якщо під час інтенсивної роботи, що вимагає напруги зору, ви відчули втому, біль або різь в очах, зробіть перерву, розслабтеся, закрийте очі на 2-3 хвилини або переведіть погляд на інші предмети. На повіки накладіть тампони, змочені настоєм з трав, або накладіть компрес.\n\n
-        Тривале перебування в запиленому, прокуреному приміщенні може викликати почервоніння повік. В цьому випадку промийте очі, а ще краще - зробіть примочки для очей. Вони роблять на очі прекрасне заспокійливу дію.\n\n
-    </string>
+
     <string name="notification">Нагадування</string>
     <string name="notification_advice">Рекомендовано тренуватись кожної години</string>
     <string name="тщеша">Нагадувати про тренування кожних:</string>
+
     <string name="change">Змінити</string>
     <string name="time_notification">Налаштування нагадування</string>
+
+    <string name="hour1">1 година</string>
+    <string name="hour2">2 години</string>
+    <string name="hour3">3 години</string>
+    <string name="hour4">4 години</string>
+    <string name="hour5">5 годин</string>
+    <string name="hour6">6 годин</string>
+    <string name="hourNever">ніколи</string>
+
+    <string name="hour_1">годину</string>
+    <string name="hour_2">години</string>
+    <string name="hour_5">годин</string>
+
+    <string name="notification1">Ми нагадаємо Вам про тренування через</string>
+    <string name="notification_never">У Вас відключені нагадування</string>
+
 </resources>

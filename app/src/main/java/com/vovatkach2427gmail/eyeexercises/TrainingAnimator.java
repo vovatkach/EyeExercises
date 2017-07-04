@@ -210,7 +210,7 @@ public class TrainingAnimator {
 
     private void OnCornersExercises() {
         onCornersCount = 0;
-        animTips("Траектрія прямокутник", "Слідкуйте очима за вказівником");
+        animTips("Траєкторія прямокутника", "Слідкуйте очима за вказівником");
         int sizeWeidth = width / 2;
         int sizeHeight = height / 2;
         int fractionWeidth = width / 22;
@@ -302,7 +302,7 @@ public class TrainingAnimator {
 
     private void OnCornersExercisesConversely() {
         onCornersCount = 0;
-        animTips("Траектрія прямокутник в інший бік", "Слідкуйте очима за вказівником");
+        animTips("Траєкторія прямокутник(в інший бік)", "Слідкуйте очима за вказівником");
         int sizeWeidth = width / 2;
         int sizeHeight = height / 2;
         int fractionWeidth = width / 22;
@@ -401,7 +401,7 @@ public class TrainingAnimator {
         layoutParamsBottom.setMargins(0, height - (height / 5), 0, 0);
         tvDown.setLayoutParams(layoutParamsBottom);
         //////-------------------
-        tvTop.setText("Подивіться на предмет який знаходиться від вас на відстані 5-10 м");
+        tvTop.setText("Подивіться на предмет, який знаходиться на відстані 5-10 метрів від Вас");
         tvDown.setText("Розглядайте предмет до сигналу");
         tvTop.setVisibility(View.VISIBLE);
         tvDown.setVisibility(View.VISIBLE);

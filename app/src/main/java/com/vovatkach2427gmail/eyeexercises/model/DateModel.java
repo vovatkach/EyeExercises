@@ -93,7 +93,7 @@ public class DateModel {
         if(res<1)
         {
             if(countTraining<=1) return "ви тренувались тільки 1 раз";else
-            return "частіше ніж 1 раз в годину";
+            return "частіше, ніж 1 раз в годину";
         }
         return "1 раз в "+TimeWritter.Time(res);
     }
@@ -113,7 +113,7 @@ public class DateModel {
         if (res < 0) res *= (-1);
         if(res<1)
         {
-            return "Ви тренувались менше ніж годину тому\nВИ МОЛОДЕЦЬ!!!";
+            return "Ви тренувались менш, ніж годину тому.\nТак тримати!\n";
         }
         String advice;
         if (res<4) advice="ВИ МОЛОДЕЦЬ!!!";else advice="\nТРЕНУЙТЕСЬ ЧАСТІШЕ!!!";
